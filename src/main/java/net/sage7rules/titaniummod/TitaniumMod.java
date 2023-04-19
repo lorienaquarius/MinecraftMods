@@ -2,8 +2,10 @@ package net.sage7rules.titaniummod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -36,7 +38,7 @@ public class TitaniumMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-
+        modEventBus.addListener(this::addCreative);
 
     }
 
@@ -44,7 +46,11 @@ public class TitaniumMod
     {
     }
 
-
+    private void addCreative(CreativeModeTabEvent.BuildContents event){
+        if(event.getTab() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.TITANIUM);
+        }
+    }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
