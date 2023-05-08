@@ -49,6 +49,7 @@ public class TitaniumMod
     private void addCreative(CreativeModeTabEvent.BuildContents event){
         if(event.getTab() == CreativeModeTabs.INGREDIENTS){
             event.accept(ModItems.TITANIUM);
+            event.accept(ModItems.TITANIUM_SWORD);
         }
     }
 
