@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+
+  ],
+  "key": {
+    "#":{
+      "item": "titaniummod:item"
+    }
+  },
+  "result": {
+    "item": "titaniummod:craft_result"
+  }
+}
