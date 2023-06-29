@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.sage7rules.titaniummod.block.ModBlocks;
 import net.sage7rules.titaniummod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -30,7 +31,7 @@ public class TitaniumMod
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
-
+        ModBlocks.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -50,6 +51,9 @@ public class TitaniumMod
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ModItems.TITANIUM);
             event.accept(ModItems.TITANIUM_SWORD);
+        }
+        else if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS){
+            event.accept(ModBlocks.TITANIUM_ORE);
         }
     }
 
