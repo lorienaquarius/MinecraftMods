@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 1,
+  "ingredient": {
+    "item": "titaniummod:titanium_ore"
+  },
+  "result": "titaniummod:titanium_bar"
+}
